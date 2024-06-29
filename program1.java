@@ -1,51 +1,34 @@
-/* 1.Write a program to find all the prime numbers between a given range .
-Constraints : User needs to enter the range (lower bound and upper bound) 
-where lower bound < upper bound and lower bound > 2 . If these conditions 
-are not satisfied then program should print Invalid range.
+/*
+Write a program to check whether the entered 
+number is prime number or not.
 
-2.Write a program to find count of prime numbers present  between a given range.
-Constraints : User needs to enter the range (lower bound and upper bound) 
-where lower bound < upper bound and lower bound > 2 . 
-If these conditions are not satisfied then program should print Invalid range.
+Test Case 1: 
+	Input : 7
+	Output : true
 
-3.Write a java program to count the number of factors of a given integer number.
-*/
+Test Case 2: 
+	Input : 15
+	Output : false
 
-
+ */
 import java.util.Scanner;
-public class program1
-{
-    public static void main(String[] args) 
-    {
+public class program1 {
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int lowerBound = s.nextInt();
-        int upperBound = s.nextInt();
-        if (!(lowerBound < upperBound && lowerBound > 2))
-        {
-            System.err.println("Invalid Range");
-            return;
-        }
-        for (int i = lowerBound; i <= upperBound; i++) 
-        {
-            if (isPrime(i))
-            {
-                System.out.print(i + " ");
-            }
-        }  
-    }
-    public static boolean isPrime(int num) 
-    {
-        if (num <= 1) 
-        {
-            return false;
-        }
-        for (int i = 2; i * i <= num; i++) 
-        {
-            if (num % i == 0)
-            {
-                return false;
+        //read num
+        int num = s.nextInt();
+        //count factors
+        int count = 2; //1 & num itself is a factor 
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                count++;
             }
         }
-        return true;
+        //check if it is prime
+        if (count == 2) {
+            System.out.println("is a prime");
+        } else {
+            System.out.println("is not a prime");
+        }
     }
 }
